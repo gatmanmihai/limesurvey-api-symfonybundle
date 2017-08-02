@@ -12,7 +12,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  *
  * @link http://symfony.com/doc/current/cookbook/bundles/extension.html
  */
-class YoumesoftGetRDVExtension extends Extension
+class YoumesoftLimeSurveyExtension extends Extension
 {
     /**
      * {@inheritdoc}

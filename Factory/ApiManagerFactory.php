@@ -5,7 +5,7 @@ namespace Youmesoft\LimeSurveyBundle\Factory;
 use org\jsonrpcphp\JsonRPCClient;
 use Youmesoft\LimeSurveyBundle\Manager\ApiManager;
 
-class ApiServiceFactory
+class ApiManagerFactory
 {
     /** @var array */
     protected $credentials;

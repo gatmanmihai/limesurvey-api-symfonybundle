@@ -22,11 +22,11 @@ class Configuration implements ConfigurationInterface
 
         $rootNode->children()
                     ->arrayNode('credentials')
-                        ->addDefaultsIfNotSet()
+                        ->isRequired()
                         ->children()
-                            ->scalarNode('url')->end()
-                            ->scalarNode('username')->end()
-                            ->scalarNode('password')->end()
+                            ->scalarNode('url')->isRequired()->end()
+                            ->scalarNode('username')->isRequired()->end()
+                            ->scalarNode('password')->isRequired()->end()
                         ->end()
                     ->end()
                  ->end();
