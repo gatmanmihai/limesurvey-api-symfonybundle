@@ -1,0 +1,40 @@
+{
+    "name":              "youmesoft/limesurvey-api-bundle",
+    "type":              "symfony-bundle",
+    "description":       "",
+    "keywords":          [
+        "getrdv"
+    ],
+    "homepage":          "https://bitbucket.org/youmesoft/limesurvey-api-symfonybundle",
+    "license":           "MIT",
+    "authors":           [
+        {
+            "name":  "Gatman Mihail",
+            "email": "mgatman@youmesoft.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable":     true,
+    "require":           {
+        "php":                          "^5.5.9|~7.0",
+        "symfony/dependency-injection": "~2.7|~3.0",
+        "symfony/config":               "~2.7|~3.0",
+        "weberhofer/jsonrpcphp":        "^2.2"
+    },
+    "require-dev":       {
+        "phpunit/phpunit":          "6.*",
+        "symfony/framework-bundle": "~2.7|~3.0",
+        "symfony/phpunit-bridge":   "~2.7|~3.0",
+        "symfony/yaml":             "~2.7|~3.0"
+    },
+    "autoload":          {
+        "psr-4": {
+            "Youmesoft\\LimeSurveyBundle\\": ""
+        }
+    },
+    "extra":             {
+        "branch-alias": {
+            "dev-master": "0.1-dev"
+        }
+    }
+}
