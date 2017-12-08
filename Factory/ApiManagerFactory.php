@@ -3,6 +3,8 @@
 namespace Youmesoft\LimeSurveyBundle\Factory;
 
 use org\jsonrpcphp\JsonRPCClient;
+use Symfony\Component\EventDispatcher\EventDispatcher;
+use Youmesoft\LimeSurveyBundle\EventSubscriber\LimeSurveySubscriber;
 use Youmesoft\LimeSurveyBundle\Manager\ApiManager;
 
 class ApiManagerFactory
@@ -15,11 +17,20 @@ class ApiManagerFactory
         $this->credentials = $credentials;
     }
 
-    public function createApiManager()
+    public function createApiManager(LimeSurveySubscriber $subscriber)
     {
         $client     = new JsonRPCClient($this->credentials['url']);
         $sessionKey = $client->get_session_key($this->credentials['username'], $this->credentials['password']);
+        $dispatcher = $this->createApiDispatcher($subscriber);
 
-        return new ApiManager($client, $sessionKey);
+        return new ApiManager($dispatcher, $client, $sessionKey);
+    }
+
+    public function createApiDispatcher(LimeSurveySubscriber $subscriber)
+    {
+        $dispatcher = new EventDispatcher();
+        $dispatcher->addSubscriber($subscriber);
+
+        return $dispatcher;
     }
 }

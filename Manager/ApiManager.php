@@ -3,9 +3,15 @@
 namespace Youmesoft\LimeSurveyBundle\Manager;
 
 use org\jsonrpcphp\JsonRPCClient;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Youmesoft\LimeSurveyBundle\Event\LimeSurveyRequestEvent;
+use Youmesoft\LimeSurveyBundle\EventSubscriber\LimeSurveySubscriber;
+use Youmesoft\LimeSurveyBundle\YoumesoftLimeSurveyEvents;
 
 class ApiManager
 {
+    /** @var LimeSurveySubscriber */
+    protected $subscriber;
     /** @var JsonRPCClient */
     protected $client;
     protected $sessionKey;
@@ -13,10 +19,14 @@ class ApiManager
     /** @var array */
     protected $credentials;
 
-    public function __construct(JsonRPCClient $client, $sessionKey)
+    /** @var EventDispatcherInterface */
+    protected $dispatcher;
+
+    public function __construct(EventDispatcherInterface $dispatcher, JsonRPCClient $client, $sessionKey)
     {
         $this->client     = $client;
         $this->sessionKey = $sessionKey;
+        $this->dispatcher = $dispatcher;
     }
 
     /**
@@ -37,10 +47,23 @@ class ApiManager
     {
         array_unshift($arguments, $this->getSessionKey());
 
-        return call_user_func_array([
-            $this->client,
-            $name,
-        ], $arguments);
+        try {
+            $response = call_user_func_array([
+                $this->client,
+                $name,
+            ], $arguments);
+        } catch (\Exception $exception) {
+            $response = [
+                'exception' => true,
+                'message'   => $exception->getMessage(),
+                'code'      => $exception->getCode(),
+            ];
+        }
+
+        $event = new LimeSurveyRequestEvent($name, $arguments, $response);
+        $this->dispatcher->dispatch(YoumesoftLimeSurveyEvents::LS_REQUEST, $event);
+
+        return $response;
     }
 
     /**

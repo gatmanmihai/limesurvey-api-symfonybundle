@@ -21,6 +21,13 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('youmesoft_lime_survey');
 
         $rootNode->children()
+                    ->arrayNode('debug')
+                        ->addDefaultsIfNotSet()
+                        ->children()
+                            ->booleanNode('enabled')->defaultFalse()->end()
+                            ->scalarNode('path')->defaultNull()->end()
+                        ->end()
+                    ->end()
                     ->arrayNode('credentials')
                         ->isRequired()
                         ->children()

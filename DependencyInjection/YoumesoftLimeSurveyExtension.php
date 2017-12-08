@@ -26,5 +26,6 @@ class YoumesoftLimeSurveyExtension extends Extension
         $loader->load('services.xml');
 
         $container->getDefinition('youmesoft_lime_survey.manager.factory')->replaceArgument(0, $config['credentials']);
+        $container->getDefinition('youmesoft_lime_survey.subscriber')->replaceArgument(1, $config);
     }
 }
