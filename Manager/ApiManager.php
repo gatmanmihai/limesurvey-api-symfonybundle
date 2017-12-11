@@ -41,18 +41,22 @@ class ApiManager
      * @param $name
      * @param $arguments
      *
-     * @return mixed
+     * @return array|mixed
+     * @throws \Exception
      */
     public function __call($name, $arguments)
     {
         array_unshift($arguments, $this->getSessionKey());
 
+        $exception = null;
         try {
             $response = call_user_func_array([
                 $this->client,
                 $name,
             ], $arguments);
-        } catch (\Exception $exception) {
+        } catch (\Exception $e) {
+            $exception = $e;
+
             $response = [
                 'exception' => true,
                 'message'   => $exception->getMessage(),
@@ -62,6 +66,10 @@ class ApiManager
 
         $event = new LimeSurveyRequestEvent($name, $arguments, $response);
         $this->dispatcher->dispatch(YoumesoftLimeSurveyEvents::LS_REQUEST, $event);
+
+        if ($exception) {
+            throw $exception;
+        }
 
         return $response;
     }
