@@ -1,11 +1,11 @@
 <?php
 
-namespace Youmesoft\LimeSurveyBundle\EventSubscriber;
+namespace Gatman\LimeSurveyBundle\EventSubscriber;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Youmesoft\LimeSurveyBundle\Event\LimeSurveyRequestEvent;
-use Youmesoft\LimeSurveyBundle\YoumesoftLimeSurveyEvents;
+use Gatman\LimeSurveyBundle\Event\LimeSurveyRequestEvent;
+use Gatman\LimeSurveyBundle\GatmanLimeSurveyEvents;
 
 class LimeSurveySubscriber implements EventSubscriberInterface
 {
@@ -27,7 +27,7 @@ class LimeSurveySubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            YoumesoftLimeSurveyEvents::LS_REQUEST => 'onLsRequest',
+            GatmanLimeSurveyEvents::LS_REQUEST => 'onLsRequest',
         ];
     }
 

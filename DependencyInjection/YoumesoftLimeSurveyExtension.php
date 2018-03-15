@@ -1,6 +1,6 @@
 <?php
 
-namespace Youmesoft\LimeSurveyBundle\DependencyInjection;
+namespace Gatman\LimeSurveyBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -12,7 +12,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  *
  * @link http://symfony.com/doc/current/cookbook/bundles/extension.html
  */
-class YoumesoftLimeSurveyExtension extends Extension
+class GatmanLimeSurveyExtension extends Extension
 {
     /**
      * {@inheritdoc}
@@ -25,7 +25,7 @@ class YoumesoftLimeSurveyExtension extends Extension
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.xml');
 
-        $container->getDefinition('youmesoft_lime_survey.manager.factory')->replaceArgument(0, $config['credentials']);
-        $container->getDefinition('youmesoft_lime_survey.subscriber')->replaceArgument(1, $config);
+        $container->getDefinition('gatman_lime_survey.manager.factory')->replaceArgument(0, $config['credentials']);
+        $container->getDefinition('gatman_lime_survey.subscriber')->replaceArgument(1, $config);
     }
 }

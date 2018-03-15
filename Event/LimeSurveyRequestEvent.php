@@ -1,6 +1,6 @@
 <?php
 
-namespace Youmesoft\LimeSurveyBundle\Event;
+namespace Gatman\LimeSurveyBundle\Event;
 
 use Symfony\Component\EventDispatcher\Event;
 

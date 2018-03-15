@@ -1,8 +1,8 @@
 <?php
 
-namespace Youmesoft\LimeSurveyBundle;
+namespace Gatman\LimeSurveyBundle;
 
-final class YoumesoftLimeSurveyEvents
+final class GatmanLimeSurveyEvents
 {
     const LS_REQUEST = 'callr.request';
 }

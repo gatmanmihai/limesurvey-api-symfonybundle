@@ -1,12 +1,12 @@
 <?php
 
-namespace Youmesoft\LimeSurveyBundle;
+namespace Gatman\LimeSurveyBundle;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Youmesoft\LimeSurveyBundle\DependencyInjection\Compiler\LimeSurveyCompilerPass;
+use Gatman\LimeSurveyBundle\DependencyInjection\Compiler\LimeSurveyCompilerPass;
 
-class YoumesoftLimeSurveyBundle extends Bundle
+class GatmanLimeSurveyBundle extends Bundle
 {
     public function build(ContainerBuilder $container)
     {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Youmesoft\LimeSurveyBundle\Manager;
+namespace Gatman\LimeSurveyBundle\Manager;
 
 use org\jsonrpcphp\JsonRPCClient;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Youmesoft\LimeSurveyBundle\Event\LimeSurveyRequestEvent;
-use Youmesoft\LimeSurveyBundle\EventSubscriber\LimeSurveySubscriber;
-use Youmesoft\LimeSurveyBundle\YoumesoftLimeSurveyEvents;
+use Gatman\LimeSurveyBundle\Event\LimeSurveyRequestEvent;
+use Gatman\LimeSurveyBundle\EventSubscriber\LimeSurveySubscriber;
+use Gatman\LimeSurveyBundle\GatmanLimeSurveyEvents;
 
 class ApiManager
 {
@@ -65,7 +65,7 @@ class ApiManager
         }
 
         $event = new LimeSurveyRequestEvent($name, $arguments, $response);
-        $this->dispatcher->dispatch(YoumesoftLimeSurveyEvents::LS_REQUEST, $event);
+        $this->dispatcher->dispatch(GatmanLimeSurveyEvents::LS_REQUEST, $event);
 
         if ($exception) {
             throw $exception;

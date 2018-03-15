@@ -1,16 +1,16 @@
 {
-    "name":              "youmesoft/limesurvey-api-bundle",
+    "name":              "gatman/limesurvey-api-bundle",
     "type":              "symfony-bundle",
     "description":       "",
     "keywords":          [
-        "limesurvey", "symfony-bundle", "youmesoft", "gatman", "api"
+        "limesurvey", "symfony-bundle", "gatman", "api"
     ],
-    "homepage":          "https://bitbucket.org/youmesoft/limesurvey-api-symfonybundle",
+    "homepage":          "https://github.com/gatmanmihai/limesurvey-api-symfonybundle",
     "license":           "MIT",
     "authors":           [
         {
             "name":  "Gatman Mihail",
-            "email": "mgatman@youmesoft.com"
+            "email": "gatman.mihai@gmail.com"
         }
     ],
     "minimum-stability": "dev",
@@ -29,7 +29,7 @@
     },
     "autoload":          {
         "psr-4": {
-            "Youmesoft\\LimeSurveyBundle\\": ""
+            "Gatman\\LimeSurveyBundle\\": ""
         }
     },
     "extra":             {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Youmesoft\LimeSurveyBundle\Factory;
+namespace Gatman\LimeSurveyBundle\Factory;
 
 use org\jsonrpcphp\JsonRPCClient;
 use Symfony\Component\EventDispatcher\EventDispatcher;
-use Youmesoft\LimeSurveyBundle\EventSubscriber\LimeSurveySubscriber;
-use Youmesoft\LimeSurveyBundle\Manager\ApiManager;
+use Gatman\LimeSurveyBundle\EventSubscriber\LimeSurveySubscriber;
+use Gatman\LimeSurveyBundle\Manager\ApiManager;
 
 class ApiManagerFactory
 {

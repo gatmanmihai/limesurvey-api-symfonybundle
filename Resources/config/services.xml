@@ -5,25 +5,25 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="youmesoft_lime_survey.subscriber.class">Youmesoft\LimeSurveyBundle\EventSubscriber\LimeSurveySubscriber</parameter>
-        <parameter key="youmesoft_lime_survey.manager.class">Youmesoft\LimeSurveyBundle\Manager\ApiManager</parameter>
-        <parameter key="youmesoft_lime_survey.manager.factory.class">Youmesoft\LimeSurveyBundle\Factory\ApiManagerFactory</parameter>
+        <parameter key="gatman_lime_survey.subscriber.class">Gatman\LimeSurveyBundle\EventSubscriber\LimeSurveySubscriber</parameter>
+        <parameter key="gatman_lime_survey.manager.class">Gatman\LimeSurveyBundle\Manager\ApiManager</parameter>
+        <parameter key="gatman_lime_survey.manager.factory.class">Gatman\LimeSurveyBundle\Factory\ApiManagerFactory</parameter>
     </parameters>
 
     <services>
-        <service id="youmesoft_lime_survey.subscriber" class="%youmesoft_lime_survey.subscriber.class%">
+        <service id="gatman_lime_survey.subscriber" class="%gatman_lime_survey.subscriber.class%">
             <argument type="service" id="service_container"/>
             <argument type="collection"/>
             <tag name="lime_survey.subscriber"/>
         </service>
 
-        <service id="youmesoft_lime_survey.manager.factory" class="%youmesoft_lime_survey.manager.factory.class%" public="false">
+        <service id="gatman_lime_survey.manager.factory" class="%gatman_lime_survey.manager.factory.class%" public="false">
             <argument type="collection"/>
         </service>
 
-        <service id="youmesoft_lime_survey.manager" class="%youmesoft_lime_survey.manager.class%">
-            <factory service="youmesoft_lime_survey.manager.factory" method="createApiManager"/>
-            <argument type="service" id="youmesoft_lime_survey.subscriber"/>
+        <service id="gatman_lime_survey.manager" class="%gatman_lime_survey.manager.class%">
+            <factory service="gatman_lime_survey.manager.factory" method="createApiManager"/>
+            <argument type="service" id="gatman_lime_survey.subscriber"/>
         </service>
     </services>
 </container>

@@ -1,6 +1,6 @@
 <?php
 
-namespace Youmesoft\LimeSurveyBundle\DependencyInjection;
+namespace Gatman\LimeSurveyBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('youmesoft_lime_survey');
+        $rootNode = $treeBuilder->root('gatman_lime_survey');
 
         $rootNode->children()
                     ->arrayNode('debug')

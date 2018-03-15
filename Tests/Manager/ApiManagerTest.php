@@ -1,11 +1,11 @@
 <?php
 
-namespace Youmesoft\LimeSurveyBundle\Tests\Manager;
+namespace Gatman\LimeSurveyBundle\Tests\Manager;
 
 use org\jsonrpcphp\JsonRPCClient;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\EventDispatcher\EventDispatcher;
-use Youmesoft\LimeSurveyBundle\Manager\ApiManager;
+use Gatman\LimeSurveyBundle\Manager\ApiManager;
 
 class ApiManagerTest extends TestCase
 {
